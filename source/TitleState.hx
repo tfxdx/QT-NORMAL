@@ -23,6 +23,7 @@ import flixel.util.FlxTimer;
 import io.newgrounds.NG;
 import lime.app.Application;
 import openfl.Assets;
+import openfl.utils.Assets as OpenFlAssets;
 
 #if windows
 import Discord.DiscordClient;
@@ -58,8 +59,7 @@ class TitleState extends MusicBeatState
 		#end
 		
 		#if sys
-		if (!sys.FileSystem.exists(Sys.getCwd() + "/assets/replays"))
-			sys.FileSystem.createDirectory(Sys.getCwd() + "/assets/replays");
+		if (!OpenFlAssets.exists("/assets/replays"));
 		#end
 
 		@:privateAccess
