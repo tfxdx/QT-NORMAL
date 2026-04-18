@@ -3,7 +3,6 @@ package;
 import openfl.geom.Matrix;
 import openfl.display.BitmapData;
 import openfl.utils.AssetType;
-import openfl.utils.Assets as OpenFlAssets;
 import lime.graphics.Image;
 import flixel.graphics.FlxGraphic;
 import openfl.utils.AssetManifest;
@@ -477,7 +476,7 @@ class PlayState extends MusicBeatState
 		repReleases = 0;
 
 		#if sys
-		executeModchart = OpenFlAssets.exists(Paths.lua(PlayState.SONG.song.toLowerCase()  + "/modchart"));
+		executeModchart = Assets.exists(Paths.lua(PlayState.SONG.song.toLowerCase()  + "/modchart"));
 		#end
 		#if !cpp
 		executeModchart = false; // FORCE disable for non cpp targets //Hey, wtf is 'cpp targets'? -Haz
@@ -2590,6 +2589,17 @@ class PlayState extends MusicBeatState
 
 		var playerCounter:Int = 0;
 
+		#if cpp
+		var songPath:String = 'assets/data/' + PlayState.SONG.song.toLowerCase() + '/';
+		var songOffset:Float = 0;
+		
+		var path = songPath + '0.offset';
+		if (Assets.exists(path))
+		{
+			trace('Found offset file: ' + path);
+			songOffset = 0;
+		}
+		#end
 		var daBeats:Int = 0; // Not exactly representative of 'daBeats' lol, just how much it has looped
 		for (section in noteData)
 		{
