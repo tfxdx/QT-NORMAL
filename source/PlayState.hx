@@ -3,6 +3,7 @@ package;
 import openfl.geom.Matrix;
 import openfl.display.BitmapData;
 import openfl.utils.AssetType;
+import openfl.utils.Assets as OpenFlAssets;
 import lime.graphics.Image;
 import flixel.graphics.FlxGraphic;
 import openfl.utils.AssetManifest;
