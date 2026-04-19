@@ -478,7 +478,7 @@ class PlayState extends MusicBeatState
 		repPresses = 0;
 		repReleases = 0;
 
-		var modchartPath:String = Paths.lua(PlayState.SONG.song.toLowerCase() + "/modchart");
+		var modchartPath:String = "assets/data/" + PlayState.SONG.song.toLowerCase() + "/modchart.lua";
 
 		executeModchart = OpenFlAssets.exists(modchartPath);
 
