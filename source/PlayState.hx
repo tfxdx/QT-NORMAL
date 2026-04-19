@@ -418,7 +418,7 @@ class PlayState extends MusicBeatState
 		#if sys
 		var pathData:String = "assets/data/" + PlayState.SONG.song.toLowerCase() + '/' + spritePath + ".png";
 
-		var data:BitmapData = OpenFlAssets.getBitmapData(path);
+		var data:BitmapData = OpenFlAssets.getBitmapData(pathData);
 
 		var sprite:FlxSprite = new FlxSprite(0,0);
 		var imgWidth:Float = FlxG.width / data.width;
