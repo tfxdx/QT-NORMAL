@@ -480,9 +480,8 @@ class PlayState extends MusicBeatState
 
 		var modchartPath:String = Paths.lua(PlayState.SONG.song.toLowerCase() + "/modchart");
 
-		#if sys
 		executeModchart = OpenFlAssets.exists(modchartPath);
-		#end
+
 		#if !cpp
 		executeModchart = false; // FORCE disable for non cpp targets //Hey, wtf is 'cpp targets'? -Haz
 		#end
