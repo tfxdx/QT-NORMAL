@@ -2086,7 +2086,7 @@ class PlayState extends MusicBeatState
 	
 				// sprites
 	
-				trace(Lua_helper.add_callback(lua,"makeSprite", makeLuaSprite));
+				/* trace(Lua_helper.add_callback(lua,"makeSprite", makeLuaSprite));
 	
 				Lua_helper.add_callback(lua,"destroySprite", function(id:String) {
 					var sprite = luaSprites.get(id);
@@ -2094,7 +2094,7 @@ class PlayState extends MusicBeatState
 						return false;
 					remove(sprite);
 					return true;
-				});
+				}); */
 	
 
 				//Termination shit -Haz
