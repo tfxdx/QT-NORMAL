@@ -2589,7 +2589,6 @@ class PlayState extends MusicBeatState
 
 		var playerCounter:Int = 0;
 
-		#end
 		var daBeats:Int = 0; // Not exactly representative of 'daBeats' lol, just how much it has looped
 		for (section in noteData)
 		{
