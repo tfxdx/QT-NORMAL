@@ -187,7 +187,7 @@ class PauseSubState extends MusicBeatSubstate
 					FlxG.resetState();
 				case "Exit to menu":
 					PlayState.loadRep = false;
-					#if windows
+					#if cpp
 					if (PlayState.lua != null)
 					{
 						Lua.close(PlayState.lua);
