@@ -2053,13 +2053,7 @@ class PlayState extends MusicBeatState
 					modchartFileName = "/modchartUNFAIR";
 
 				// ruta lógica
-				var luaPath:String = PlayState.SONG.song.toLowerCase() + modchartFileName;
-
-				// cargar desde assets (NO sys)
-				var luaCode:String = Assets.getText(Paths.lua(PlayState.SONG.song.toLowerCase() + modchartFileName));
-
-				// ejecutar código
-				var result = LuaL.dostring(lua, luaCode);
+				var result = LuaL.dostring(lua, Paths.lua(PlayState.SONG.song.toLowerCase() + modchartFileName)); // execute le file
 
 				if (result != 0)
 					throw('COMPILE ERROR\n' + getLuaErrorMessage(lua));
