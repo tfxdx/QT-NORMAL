@@ -2037,18 +2037,30 @@ class PlayState extends MusicBeatState
 		if (executeModchart) // dude I hate lua (jkjkjkjk)
 			{
 				trace('opening a lua state (because we are cool :))');
+
 				lua = LuaL.newstate();
 				LuaL.openlibs(lua);
+
 				trace("Lua version: " + Lua.version());
 				trace("LuaJIT version: " + Lua.versionJIT());
-				Lua.init_callbacks(lua);
-				
-				var modchartFileName:String = "/modchart";
-				if(SONG.song.toLowerCase() == 'termination' && storyDifficulty==1)
-					modchartFileName == "/modchartUNFAIR";
 
-				var result = LuaL.dofile(lua, Paths.lua(PlayState.SONG.song.toLowerCase() + modchartFileName)); // execute le file
-	
+				Lua.init_callbacks(lua);
+
+				// nombre del modchart
+				var modchartFileName:String = "/modchart";
+
+				if (SONG.song.toLowerCase() == 'termination' && storyDifficulty == 1)
+					modchartFileName = "/modchartUNFAIR";
+
+				// ruta lógica
+				var luaPath:String = PlayState.SONG.song.toLowerCase() + modchartFileName;
+
+				// cargar desde assets (NO sys)
+				var luaCode:String = OpenFlAssets.getText(Paths.lua(luaPath));
+
+				// ejecutar código
+				var result = LuaL.dostring(lua, luaCode);
+
 				if (result != 0)
 					throw('COMPILE ERROR\n' + getLuaErrorMessage(lua));
 
