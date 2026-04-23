@@ -2056,7 +2056,7 @@ class PlayState extends MusicBeatState
 				var luaPath:String = PlayState.SONG.song.toLowerCase() + modchartFileName;
 
 				// cargar desde assets (NO sys)
-				var luaCode:String = Assets.getText(Paths.lua(luaPath));
+				var luaCode:String = Assets.getText(Paths.lua(PlayState.SONG.song.toLowerCase() + modchartFileName));
 
 				// ejecutar código
 				var result = LuaL.dostring(lua, luaCode);
